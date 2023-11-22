@@ -4,12 +4,9 @@
     {
         static void Main(string[] args)
         {
-            Order myOrder = new Order();
-            Console.WriteLine("Input unit cost:");
-            myOrder.unitCost = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Input unit count");
-            myOrder.unitCount = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine($"Total cost is: {myOrder.totalPrice()}");
+                Order myOrder = new Order();
+            myOrder.orderInfo();
+
         }
             struct Order
         {
@@ -17,6 +14,20 @@
             public int unitCount;
             public int unitCost;
             public int totalPrice() => unitCost * unitCount;
+            public void orderInfo()
+            {
+                Console.WriteLine("Input item name:");
+                itemName = Console.ReadLine();
+
+                Console.WriteLine("Input unit cost:");
+                unitCost = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("Input unit count");
+                unitCount = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine($"Order information: {unitCount} {itemName} items at ${unitCost} each, " +
+                    $"total cost ${totalPrice()}");
+            }
         }
     }
 }
